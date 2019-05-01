@@ -1,0 +1,69 @@
+{% load static %}
+
+<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>CFE</title>
+		<meta name="description" content="The HTML5 Herald">
+		<meta name="author" content="SitePoint">
+
+		<link rel="stylesheet" href='{% static "css/bootstrap.min.css" %}'>
+		<link rel="stylesheet" href='{% static "css/bootstrap-grid.css" %}'>
+		<link rel="stylesheet" href='{% static "css/style.css" %}'>
+	</head>
+
+	<body>
+		<div class="banner">
+			<div class="title">
+				<h2>What's the weather like?<h2>
+			</div>
+		</div>
+
+
+
+		<div class="container mainbody">
+			<form method="POST">
+				{% csrf_token %}
+			    <div class="input-group mb-3">    	
+				  {{ form.name }}
+				  <div class="input-group-append">
+				    <button class="btn btn-primary" type="submit" id="add_city">Add City</button>
+				  </div>			
+				</div>
+			</form>
+
+
+			{% for city_weather in weather_data %}
+			<div class="card mb-3">
+			  <div class="row no-gutters">
+			    <div class="col-md-4">
+			      <img src='http://openweathermap.org/img/w/{{ city_weather.icon }}.png' class="card-img" alt="...">
+			    </div>
+			    <div class="col-md-8">
+			      <div class="card-body">
+			        <h5 class="card-title">{{ city_weather.city }}</h5>
+			        <p class="card-text">{{ city_weather.temperature }} °F</p>
+			        <p class="card-text"><small class="text-muted">{{ city_weather.description }}</small></p>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			{% endfor %}
+
+		</div>
+
+
+		<div class="footer">
+		    
+		</div>
+
+
+
+
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	</body>
+	
+</html>

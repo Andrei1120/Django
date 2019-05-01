@@ -1,0 +1,21 @@
+.banner {  
+  background-color: #00BBB4;  
+}
+
+.title {
+  color: white;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 10%;
+}
+
+.mainbody {
+  width: 30%;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.footer {
+  height: 50px;
+  background-color: #ccc;
+}
